@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Disney API</string>
+
+    <string name="welcome_banner">Welcome to Disney API!</string>
+    <string name="get_started">Get started</string>
+    <string name="all">All</string>
+    <string name="favorite">My</string>
+
+    <string name="all_heroes_list_button">All Heroes</string>
+
+    <!--  Screens  -->
+    <string name="onboarding_screen">Onboarding</string>
+    <string name="hero_list_screen">List Of Heroes</string>
+    <string name="hero_detail_screen">Hero\'s Details</string>
+
+</resources>
