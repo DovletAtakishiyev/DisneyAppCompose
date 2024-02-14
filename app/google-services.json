@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "994606847418",
+    "project_id": "disney-api-compose",
+    "storage_bucket": "disney-api-compose.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994606847418:android:44251227a388b6c2b9f983",
+        "android_client_info": {
+          "package_name": "com.tshahakurov.disneyapi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAphpdz7aPCVKkNwxcgG771tdxhtE50t9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

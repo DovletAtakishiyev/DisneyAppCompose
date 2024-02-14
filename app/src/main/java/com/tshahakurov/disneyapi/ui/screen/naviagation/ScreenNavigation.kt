@@ -56,6 +56,10 @@ fun DisneyScreen(
                     viewModel.setCurrentHero(id)
                     navController.navigate(DisneyScreen.HeroDetail.name)
                 },
+                onAllClickedAction = {},
+                onFavoriteClickedAction = {
+                    throw RuntimeException("Test Crash")
+                }
             )
         }
         //   ( -_•)▄︻デ══━一  Screen 3       (ó﹏ò｡)
