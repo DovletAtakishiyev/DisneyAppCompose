@@ -11,9 +11,6 @@ private const val DEFAULT_PAGE_SIZE = 149
 
 interface SuitaApi {
 
-    @GET("character/206")
-    suspend fun getHero(): Response<HeroResponse>
-
     @GET("character/{id}")
     suspend fun getHeroById(@Path("id") id: String): Response<HeroResponse>
 

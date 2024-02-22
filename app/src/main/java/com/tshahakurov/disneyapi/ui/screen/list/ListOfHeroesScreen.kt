@@ -13,7 +13,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.tshahakurov.disneyapi.R
 import com.tshahakurov.disneyapi.model.Hero
-import com.tshahakurov.disneyapi.ui.screen.loading.LoadingProcessBar
+import com.tshahakurov.disneyapi.ui.screen.util.LoadingProcessBar
 import com.tshahakurov.disneyapi.ui.theme.ScreenBackground
 
 @Composable
@@ -22,7 +22,8 @@ fun ListOfHeroesScreen(
     isLoading: Boolean = true,
     onItemClickAction: (id: Int) -> Unit = {},
     onAllClickedAction: () -> Unit = {},
-    onFavoriteClickedAction: () -> Unit = {}
+    onFavoriteClickedAction: () -> Unit = {},
+    onProfileClickedAction: () -> Unit = {}
 ) {
     Box(
         modifier = Modifier
@@ -33,7 +34,8 @@ fun ListOfHeroesScreen(
         Column {
             ListScreenButtonsBlock(
                 onAllClickAction = onAllClickedAction,
-                onFavoriteClickAction = onFavoriteClickedAction
+                onFavoriteClickAction = onFavoriteClickedAction,
+                onProfileClickAction = onProfileClickedAction,
             )
             Spacer(modifier = Modifier.size(dimensionResource(R.dimen.padding_medium)))
             if (isLoading) {

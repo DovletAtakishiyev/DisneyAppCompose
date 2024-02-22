@@ -1,6 +1,5 @@
 package com.tshahakurov.disneyapi.ui.screen.hero
 
-import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -17,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.tshahakurov.disneyapi.R
 import com.tshahakurov.disneyapi.db.DB
 import com.tshahakurov.disneyapi.model.Hero
-import com.tshahakurov.disneyapi.ui.screen.loading.LoadingProcessBar
+import com.tshahakurov.disneyapi.ui.screen.util.LoadingProcessBar
 import com.tshahakurov.disneyapi.ui.theme.ScreenBackground
 
 @Composable

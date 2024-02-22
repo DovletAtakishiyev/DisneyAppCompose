@@ -24,16 +24,12 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.tshahakurov.disneyapi.R
 import com.tshahakurov.disneyapi.model.Hero
+import com.tshahakurov.disneyapi.ui.screen.util.getAppTextStyle
 import com.tshahakurov.disneyapi.ui.theme.ButtonBackgroundUnselected
 import com.tshahakurov.disneyapi.ui.theme.DarkViolet
 
@@ -115,14 +111,7 @@ fun Body(hero: Hero?) {
             Column {
                 Text(
                     text = hero.name,
-                    style = TextStyle(
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold,
-                        fontFamily = FontFamily.Monospace,
-                        fontSize = with(LocalDensity.current) {
-                            LocalContext.current.resources.getDimensionPixelSize(R.dimen.big_text_size)
-                                .toSp()
-                        })
+                    style = getAppTextStyle(fontSize = R.dimen.big_text_size)
                 )
                 Spacer(modifier = Modifier.size(dimensionResource(R.dimen.padding_medium)))
                 Column {
@@ -145,18 +134,9 @@ fun CharacteristicElement(
         Column(Modifier.fillMaxWidth()) {
             Text(
                 text = element.first,
-                style = TextStyle(
-                    color = Color.White,
-                    fontWeight = FontWeight.Bold,
-                    fontFamily = FontFamily.Monospace,
-                    fontSize = with(LocalDensity.current) {
-                        LocalContext.current.resources.getDimensionPixelSize(R.dimen.header_text_size)
-                            .toSp()
-                    }
-                )
+                style = getAppTextStyle(fontSize = R.dimen.header_text_size)
             )
-            Column(
-            ) {
+            Column{
                 for (item in element.second) {
                     Box(
                         modifier = Modifier
@@ -175,15 +155,7 @@ fun CharacteristicElement(
                                     horizontal = dimensionResource(R.dimen.padding_small),
                                     vertical = dimensionResource(R.dimen.padding_tiny),
                                 ),
-                            style = TextStyle(
-                                color = Color.White,
-                                fontWeight = FontWeight.Bold,
-                                fontFamily = FontFamily.Monospace,
-                                fontSize = with(LocalDensity.current) {
-                                    LocalContext.current.resources.getDimensionPixelSize(R.dimen.medium_text_size)
-                                        .toSp()
-                                }
-                            )
+                            style = getAppTextStyle(fontSize = R.dimen.medium_text_size)
                         )
                     }
                 }

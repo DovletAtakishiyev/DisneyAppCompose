@@ -3,17 +3,18 @@ package com.tshahakurov.disneyapi.ui.screen.list
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -34,7 +35,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.tshahakurov.disneyapi.R
 import com.tshahakurov.disneyapi.model.Hero
@@ -45,21 +45,50 @@ import com.tshahakurov.disneyapi.ui.theme.ButtonBackgroundUnselected
 fun ListScreenButtonsBlock(
     onAllClickAction: () -> Unit = {},
     onFavoriteClickAction: () -> Unit = {},
+    onProfileClickAction: () -> Unit = {},
 ) {
-    Row {
-        UserCustomButton(
-            Icons.Default.Home,
-            text = R.string.all,
-            selected = true,
-            onClickAction = onAllClickAction
-        )
-        Spacer(Modifier.size(dimensionResource(R.dimen.padding_medium)))
-        UserCustomButton(
-            Icons.Default.FavoriteBorder,
-            text = R.string.favorite,
-            selected = false,
-            onClickAction = onFavoriteClickAction
-        )
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Row{
+            UserCustomButton(
+                Icons.Default.Home,
+                text = R.string.all,
+                selected = true,
+                onClickAction = onAllClickAction
+            )
+            Spacer(Modifier.size(dimensionResource(R.dimen.padding_medium)))
+            UserCustomButton(
+                Icons.Default.FavoriteBorder,
+                text = R.string.favorite,
+                selected = false,
+                onClickAction = onFavoriteClickAction
+            )
+        }
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Image(
+                painterResource(id = R.drawable.def_icon),
+                contentDescription = null,
+                contentScale = ContentScale.Crop ,
+                modifier = Modifier
+                    .size(dimensionResource(id = R.dimen.button_small))
+                    .clip(CircleShape)
+                    .clickable { onProfileClickAction() }
+            )
+            Spacer(modifier = Modifier.size(dimensionResource(R.dimen.padding_small)))
+            Text(
+                text = stringResource(R.string.profile),
+                color = Color.White,
+                fontSize = with(LocalDensity.current) {
+                    LocalContext.current.resources.getDimensionPixelSize(R.dimen.small_text_size).toSp()
+                },
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.Monospace
+            )
+        }
     }
 }
 

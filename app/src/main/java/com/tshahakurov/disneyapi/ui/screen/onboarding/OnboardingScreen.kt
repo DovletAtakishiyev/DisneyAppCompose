@@ -13,17 +13,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.tshahakurov.disneyapi.R
+import com.tshahakurov.disneyapi.ui.screen.util.getAppTextStyle
 import com.tshahakurov.disneyapi.ui.theme.ScreenBackground
 
 @Composable
@@ -43,7 +38,7 @@ fun OnboardingScreen(
         ){
             Text(
                 text = stringResource(id = R.string.welcome_banner),
-                style = getOnboardingBannerStyle()
+                style = getAppTextStyle(fontSize = R.dimen.header_text_size)
             )
             Image(
                 painter = painterResource(id = R.drawable.ic_launcher_foreground),
@@ -53,7 +48,7 @@ fun OnboardingScreen(
             Button(onClick = { onButtonClick() }) {
                 Text(
                     text = stringResource(id = R.string.get_started).uppercase(),
-                    style = getOnboardingBannerStyle()
+                    style = getAppTextStyle(fontSize = R.dimen.medium_text_size)
                 )
             }
         }
@@ -65,14 +60,3 @@ fun OnboardingScreen(
 fun OnboardingScreenPreview() {
     OnboardingScreen()
 }
-
-@Composable
-private fun getOnboardingBannerStyle(): TextStyle =
-    TextStyle(
-        color = Color.White,
-        fontWeight = FontWeight.Bold,
-        fontFamily = FontFamily.Monospace,
-        fontSize = with(LocalDensity.current) {
-            LocalContext.current.resources.getDimensionPixelSize(R.dimen.header_text_size).toSp()
-        }
-    )

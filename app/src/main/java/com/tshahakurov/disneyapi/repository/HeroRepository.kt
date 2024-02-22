@@ -1,7 +1,5 @@
 package com.tshahakurov.disneyapi.repository
 
-import com.tshahakurov.disneyapi.db.DB
-import com.tshahakurov.disneyapi.model.Hero
 import com.tshahakurov.disneyapi.network_eji.SuitaApi
 import javax.inject.Inject
 
