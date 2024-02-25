@@ -1,7 +1,7 @@
-package com.tshahakurov.disneyapi.network_eji
+package com.tshahakurov.disneyapi.logic.network_eji
 
-import com.tshahakurov.disneyapi.model.response.HeroListResponse
-import com.tshahakurov.disneyapi.model.response.HeroResponse
+import com.tshahakurov.disneyapi.logic.model.response.HeroListResponse
+import com.tshahakurov.disneyapi.logic.model.response.HeroResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

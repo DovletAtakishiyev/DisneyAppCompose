@@ -1,4 +1,4 @@
-package com.tshahakurov.disneyapi.model.response
+package com.tshahakurov.disneyapi.logic.model.response
 
 import com.google.gson.annotations.SerializedName
 

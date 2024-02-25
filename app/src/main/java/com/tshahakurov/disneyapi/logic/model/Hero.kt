@@ -1,4 +1,4 @@
-package com.tshahakurov.disneyapi.model
+package com.tshahakurov.disneyapi.logic.model
 
 data class Hero(
     val id: Int,

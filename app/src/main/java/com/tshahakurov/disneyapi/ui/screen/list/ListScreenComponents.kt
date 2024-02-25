@@ -37,7 +37,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import coil.compose.AsyncImage
 import com.tshahakurov.disneyapi.R
-import com.tshahakurov.disneyapi.model.Hero
+import com.tshahakurov.disneyapi.logic.model.Hero
 import com.tshahakurov.disneyapi.ui.theme.ButtonBackgroundSelected
 import com.tshahakurov.disneyapi.ui.theme.ButtonBackgroundUnselected
 

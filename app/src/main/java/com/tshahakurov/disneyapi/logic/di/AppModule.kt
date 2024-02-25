@@ -1,6 +1,6 @@
-package com.tshahakurov.disneyapi.di
+package com.tshahakurov.disneyapi.logic.di
 
-import com.tshahakurov.disneyapi.network_eji.SuitaApi
+import com.tshahakurov.disneyapi.logic.network_eji.SuitaApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

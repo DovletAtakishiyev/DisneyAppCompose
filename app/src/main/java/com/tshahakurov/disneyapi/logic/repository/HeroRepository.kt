@@ -1,6 +1,6 @@
-package com.tshahakurov.disneyapi.repository
+package com.tshahakurov.disneyapi.logic.repository
 
-import com.tshahakurov.disneyapi.network_eji.SuitaApi
+import com.tshahakurov.disneyapi.logic.network_eji.SuitaApi
 import javax.inject.Inject
 
 class HeroRepository @Inject constructor(

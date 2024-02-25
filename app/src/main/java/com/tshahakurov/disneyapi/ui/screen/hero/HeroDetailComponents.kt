@@ -28,7 +28,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.tshahakurov.disneyapi.R
-import com.tshahakurov.disneyapi.model.Hero
+import com.tshahakurov.disneyapi.logic.model.Hero
 import com.tshahakurov.disneyapi.ui.screen.util.getAppTextStyle
 import com.tshahakurov.disneyapi.ui.theme.ButtonBackgroundUnselected
 import com.tshahakurov.disneyapi.ui.theme.DarkViolet

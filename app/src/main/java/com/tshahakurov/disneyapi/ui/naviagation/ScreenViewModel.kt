@@ -8,8 +8,9 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.Firebase
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.auth
-import com.tshahakurov.disneyapi.model.Hero
-import com.tshahakurov.disneyapi.repository.HeroRepository
+import com.tshahakurov.disneyapi.logic.model.Hero
+import com.tshahakurov.disneyapi.logic.repository.AuthRepository
+import com.tshahakurov.disneyapi.logic.repository.HeroRepository
 import com.tshahakurov.disneyapi.util.isValidEmail
 import com.tshahakurov.disneyapi.util.toHero
 import com.tshahakurov.disneyapi.util.toHeroList
@@ -20,7 +21,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ScreenViewModel @Inject constructor(
-    private val repository: HeroRepository
+    private val heroRepo: HeroRepository,
+    private val authRepo: AuthRepository
 ) : ViewModel() {
 
     var currentHero = MutableLiveData<Hero?>()
@@ -30,7 +32,7 @@ class ScreenViewModel @Inject constructor(
     fun getHeroList() {
         viewModelScope.launch(Dispatchers.IO) {
             isLoading.postValue(true)
-            val response = repository.getHeroList()
+            val response = heroRepo.getHeroList()
             if (response.isSuccessful)
                 heroList.postValue(response.body()?.toHeroList())
             isLoading.postValue(false)
@@ -40,7 +42,7 @@ class ScreenViewModel @Inject constructor(
     fun setCurrentHero(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             isLoading.postValue(true)
-            val response = repository.findHeroById(id)
+            val response = heroRepo.findHeroById(id)
             if (response.isSuccessful)
                 currentHero.postValue(response.body()?.toHero())
             isLoading.postValue(true)
@@ -57,19 +59,7 @@ class ScreenViewModel @Inject constructor(
         password: String,
         onResponseListener: (Task<AuthResult>) -> Unit,
     ) {
-        viewModelScope.launch(Dispatchers.IO) {
-            isLoading.postValue(true)
-            if (isValidEmail(email) && password.length > 5) {
-                Firebase.auth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener {
-                        onResponseListener(it)
-                        isLoading.postValue(false)
-                    }
-            } else {
-                isLoading.postValue(false)
-            }
-        }
-
+        authRepo.signUp(email, password, onResponseListener, isLoading)
     }
 
     fun validateSignup(
@@ -78,20 +68,7 @@ class ScreenViewModel @Inject constructor(
         confPassword: String,
         onResponseListener: (Task<AuthResult>) -> Unit,
     ) {
-        viewModelScope.launch(Dispatchers.IO) {
-            Log.d("suita", "click")
-            isLoading.postValue(true)
-            if (isValidEmail(email) && password.length > 5 && password == confPassword) {
-                Firebase.auth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener {
-                        onResponseListener(it)
-                        isLoading.postValue(false)
-                    }
-            } else {
-                isLoading.postValue(false)
-            }
-        }
-
+        authRepo.logIn(email, password, confPassword, onResponseListener, isLoading)
     }
     fun validateGoogleLogin() {}
     fun validateGoogleSignup() {}

@@ -1,6 +1,6 @@
-package com.tshahakurov.disneyapi.db
+package com.tshahakurov.disneyapi.logic.db
 
-import com.tshahakurov.disneyapi.model.Hero
+import com.tshahakurov.disneyapi.logic.model.Hero
 
 object DB {
 
