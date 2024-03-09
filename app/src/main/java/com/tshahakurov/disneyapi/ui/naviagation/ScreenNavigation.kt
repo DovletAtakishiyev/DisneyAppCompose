@@ -3,6 +3,11 @@ package com.tshahakurov.disneyapi.ui.naviagation
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -43,7 +48,11 @@ fun DisneyScreen(
         navController = navController,
         startDestination =
             if (Firebase.auth.currentUser == null) DisneyScreen.Onboarding.name
-            else DisneyScreen.HeroesList.name
+            else DisneyScreen.HeroesList.name,
+        enterTransition = { fadeIn() + slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left) },
+        exitTransition = { fadeOut(tween(500)) },
+        popEnterTransition = { fadeIn() },
+        popExitTransition = { fadeOut() + slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right) }
     ) {
 
         //   ( -_•)▄︻デ══━一 - - - - - - - - - - - > (Onboarding) - - - > (ó﹏ò｡)

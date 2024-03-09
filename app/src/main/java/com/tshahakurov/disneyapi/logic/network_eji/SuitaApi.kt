@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-private const val DEFAULT_PAGE_SIZE = 149
+private const val DEFAULT_PAGE_SIZE = 50
 
 interface SuitaApi {
 

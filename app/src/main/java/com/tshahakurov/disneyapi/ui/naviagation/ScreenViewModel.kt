@@ -1,17 +1,13 @@
 package com.tshahakurov.disneyapi.ui.naviagation
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.gms.tasks.Task
-import com.google.firebase.Firebase
 import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.auth
 import com.tshahakurov.disneyapi.logic.model.Hero
 import com.tshahakurov.disneyapi.logic.repository.AuthRepository
 import com.tshahakurov.disneyapi.logic.repository.HeroRepository
-import com.tshahakurov.disneyapi.util.isValidEmail
 import com.tshahakurov.disneyapi.util.toHero
 import com.tshahakurov.disneyapi.util.toHeroList
 import dagger.hilt.android.lifecycle.HiltViewModel
